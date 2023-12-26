@@ -9,8 +9,8 @@ HTML-first, low-friction library to add interactivity to a web page.
 No build step needed. Just download `conjure.min.js` from the `dist` folder above and reference it in your HTML.
 
 ```html
-<script src="conjure.min.js"></script>\
-]```
+<script src="conjure.min.js"></script>
+```
 
 ## Size
 
@@ -30,6 +30,20 @@ Sets a variable to a specific value when the element is clicked.
 <!-- When this span is clicked a value of `1` is stored in `example` -->
 <span :click="example = 1">Click</span>
 ```
+
+By default, the assignment can be any type that can be understood by `JSON.parse`, i.e. ints, strings, arrays, etc.
+
+It can also refer to a variable stored by `conjure`.
+
+```html
+<!-- When this span is clicked a value of `1` is stored in `example` -->
+<span :click="example = 1">Click</span>
+
+<!-- When this span is clicked after the above is clicked, a value of `1` is stored in `newExample` -->
+<span :click="newExample = example">Click</span>
+```
+
+If strict CSP is not required, the `CONJURE_USE_EVAL` setting can be set to `true` and the right-hand side can be simple JavaScript statements, e.g. `example = 1 + 2` would be evaluated to `3` and then stored in the `example` variable.
 
 ### Value
 
@@ -60,7 +74,7 @@ Variables are stored in `window.conjure` if you need access to them.
 By default, `conjure` is usable with strict CSP, however that does prevent using JavaScript in certain places, e.g. the right-hand side of an action. Setting `CONJURE_USE_EVAL` to `true` allows more flexibility.
 
 ```html
-<script src="js/conjure.min.js"></script>
+<script src="conjure.min.js"></script>
 <script>
     CONJURE_USE_EVAL = true;
 </script>
