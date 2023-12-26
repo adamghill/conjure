@@ -95,3 +95,7 @@ The code is well documented and hopefully relatively clear. Most of the magic is
 ## Colophon
 
 - [Rollup](https://rollupjs.org)
+
+## Inspiration
+
+[Original Twitter post](https://x.com/tonyennis/status/1687390226962935809) and my [initial reaction](https://indieweb.social/@adamghill/111636307364680836).
