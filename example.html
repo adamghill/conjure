@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <style>
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span :click="example = 1">Click with `1`</span><br />
+    <button :click="example = 3">Button with `3`</button><br />
+    <span :click="example = [1, 2]">Click with `1,2`</span><br />
+    <span :click="example = 'vbnm'">Click with `'vbnm'`</span><br />
+    <span :click="example = 1 + 8">Click with `1 + 8`</span><br />
+    <span :click="example = asdf">Click with undefined</span><br />
+
+    example: <input type="text" :value="example" value="initial example" /><br />
+  </div>
+
+  <hr />
+
+  <div>
+    <span :click="newExample = conjure.example">Click with variable</span><br />
+    newExample: <input type="text" :value="newExample" value="initial newExample" /><br />
+  </div>
+
+  <hr />
+
+  <div>
+    <span :click="selectExample = 'option2'">Click to set select</span><br />
+
+    <select :value="selectExample">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select>
+  </div>
+
+  <hr />
+
+  <div>
+    <span :click="divClass = 'red'">Red class</span><br />
+    <span :click="divClass = 'blue'">Blue class</span><br />
+
+    <div :class="divClass == 'red' ? 'red' : 'blue'">
+      Example class
+    </div>
+  </div>
+
+  <!-- <script src="{% static 'js/conjure.js' %}"></script> -->
+  <script src="src/index.js" type="module"></script>
+  <!-- <script src="dist/conjure.min.js"></script> -->
+  <script>
+    CONJURE_USE_EVAL = true;
+  </script>
+</body>
+
+</html>

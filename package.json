@@ -1,0 +1,57 @@
+{
+    "name": "conjure",
+    "pkgName": "conjure",
+    "version": "0.2.0",
+    "author": "adamghill",
+    "license": "MIT",
+    "description": "conjure",
+    "main": "dist/conjure.min.js",
+    "module": "dist/conjure.min.js",
+    "type": "module",
+    "files": [
+      "dist",
+      "src",
+      "docs/source"
+    ],
+    "keywords": [
+      "reactive",
+      "bind",
+      "view",
+      "templating",
+      "dom"
+    ],
+    "scripts": {
+      "size": "gzip-size ./dist/conjure.min.js --include-original && echo `brotli dist/conjure.min.js -c | wc -c | numfmt --to=iec --suffix=B --format='%.2f'` '(brotli)'",
+      "check-size": "gzip-size ./dist/conjure.min.js --raw",
+      "ts": "tsc",
+      "t": "vitest run",
+      "tw": "vitest",
+      "b": "npm run build && stat -f%z dist/conjure.min.js | numfmt --to=iec --suffix=B --format='%.2f' && npm run size",
+      "build": "rollup -c",
+      "r": "DEV_SERVER_PORT=4000 DEV_SERVER_ROOT=. dev-server",
+      "sb": "cp CHANGELOG.md docs/source/changelog.md && poetry run sphinx-build -W -b dirhtml docs/source site",
+      "sa": "cp CHANGELOG.md docs/source/changelog.md && poetry run sphinx-autobuild -W -b dirhtml docs/source docs/build"
+    },
+    "jest": {
+      "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/adamghill/conjure.git"
+    },
+    "bugs": {
+      "url": "https://github.com/adamghill/conjure/discussions"
+    },
+    "homepage": "https://github.com/adamghill/conjure",
+    "devDependencies": {
+      "@babel/core": "^7.4.3",
+      "@babel/preset-env": "^7.4.3",
+      "gzip-size-cli": "^5.1.0",
+      "rollup": "^3.13.0",
+      "rollup-plugin-banner2": "^1.2.2",
+      "@rollup/plugin-terser": "^0.4.0"
+    },
+    "dependencies": {
+    }
+  }
+  
