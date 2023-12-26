@@ -6,11 +6,11 @@ HTML-first, low-friction library to add interactivity to a web page.
 
 ## Installation
 
-No build step needed. Just include the library in your HTML.
+No build step needed. Just download `conjure.min.js` from the `dist` folder above and reference it in your HTML.
 
 ```html
-<script src="js/conjure.min.js"></script>
-```
+<script src="conjure.min.js"></script>\
+]```
 
 ## Size
 
