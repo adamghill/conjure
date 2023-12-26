@@ -1,6 +1,6 @@
 # conjure
 
-HTML-first, low-friction library to add interactivity to a web page with minimal hassle.
+HTML-first, low-friction library to add interactivity to a web page.
 
 ## Installation
 
@@ -18,9 +18,20 @@ No build step needed. Just include the library in your HTML.
 
 ## Features
 
+### Actions
+
+#### Click
+
+Sets a variable to a specific value when the element is clicked.
+
+```html
+<!-- When this span is clicked a value of `1` is stored in `example` -->
+<span :click="example = 1">Click</span>
+```
+
 ### Value
 
-Binds the value of the element to the `conjure` variable.
+Binds the value of the element to the specified variable.
 
 ```html
 <!-- When `example` is updated the value in this input will change -->
@@ -36,17 +47,6 @@ Sets the element's class based on a variable.
 <span :class="example == 1 ? 'red' : 'blue'">Example</span>
 ```
 
-### Actions
-
-#### click
-
-Sets a variable to a specific value when the element is clicked.
-
-```html
-<!-- When this span is clicked a value of `1` is stored in `example` -->
-<span :click="example = 1">Click</span>
-```
-
 ## Variable access
 
 Variables are stored in `window.conjure` if you need access to them.
@@ -55,7 +55,7 @@ Variables are stored in `window.conjure` if you need access to them.
 
 ### CONJURE_USE_EVAL
 
-By default, `conjure` is usable with strict CSP, however that does prevent using JavaScript in certain places, e.g. the right-hand side of an action.
+By default, `conjure` is usable with strict CSP, however that does prevent using JavaScript in certain places, e.g. the right-hand side of an action. Setting `CONJURE_USE_EVAL` to `true` allows more flexibility.
 
 ```html
 <script src="js/conjure.min.js"></script>
@@ -64,7 +64,7 @@ By default, `conjure` is usable with strict CSP, however that does prevent using
 </script>
 ```
 
-This would allow something like this to be used.
+This would allow something like this to be done.
 
 ```html
 <!-- When this span is clicked a value of `3` is stored in `example` -->
@@ -86,12 +86,10 @@ TBD
 
 `npm run b`
 
+## Additional reading
+
+The code is well documented and hopefully relatively clear. Most of the magic is achieved with [proxy objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and [XPath queries](https://denizaksimsek.com/2023/xpath/). [Indirect eval](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#using_indirect_eval) is used when `CONJURE_USE_EVAL=true`.
+
 ## Colophon
 
 - [Rollup](https://rollupjs.org)
-
-## Additional reading
-
-- [XPath query](https://denizaksimsek.com/2023/xpath/)
-- [Indirect eval](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#using_indirect_eval)
-- [Proxy objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)

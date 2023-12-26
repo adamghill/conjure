@@ -14,21 +14,21 @@
 
 <body>
   <div>
-    <span :click="example = 1">Click with `1`</span><br />
-    <button :click="example = 3">Button with `3`</button><br />
-    <span :click="example = [1, 2]">Click with `1,2`</span><br />
-    <span :click="example = 'vbnm'">Click with `'vbnm'`</span><br />
-    <span :click="example = 1 + 8">Click with `1 + 8`</span><br />
+    <span :click="example = 1">Click with 1</span><br />
+    <button :click="example = 3">Button with 3</button><br />
+    <span :click="example = [1, 2]">Click with [1, 2]</span><br />
+    <span :click="example = 'vbnm'">Click with 'vbnm'</span><br />
+    <span :click="example = 1 + 8">Click with 1 + 8</span><br />
     <span :click="example = asdf">Click with undefined</span><br />
 
-    example: <input type="text" :value="example" value="initial example" /><br />
+    example: <input type="text" :value="example" value="initial example" />
   </div>
 
   <hr />
 
   <div>
-    <span :click="newExample = conjure.example">Click with variable</span><br />
-    newExample: <input type="text" :value="newExample" value="initial newExample" /><br />
+    <span :click="newExample = conjure.example">Click with conjure.example</span><br />
+    newExample: <input type="text" :value="newExample" value="initial newExample" />
   </div>
 
   <hr />
